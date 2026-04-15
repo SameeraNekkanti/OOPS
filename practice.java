@@ -1,61 +1,43 @@
-package hello_world;
-import java.util.Scanner;
-
-class Studenti {
-    private String name;
-    private int rollNumber;
-    private int marks;
-	
-    public Studenti(String name, int rollNumber, int marks) {
-        this.name = name;
-        this.rollNumber = rollNumber;
-        this.marks = marks;
-    }
-	public String calculateGrade() {
-		if(marks>=80) {
-			return "A";
-		}
-		else if(marks>= 60) {
-            return "B";
-		
-	}else if (marks >= 40) {
-        return "C";
-    } else {
-        return "Fail";
-    }
-	}
-
-    public void displayDetails() {
-        System.out.println("\nStudent Details:");
-        System.out.println("Name: " + name);
-        System.out.println("Roll Number: " + rollNumber);
-        System.out.println("Marks: " + marks);
-        System.out.println("Grade: " + calculateGrade());
-		
-	}
+class Students {
+    String name;
 }
+
 public class practice {
 
-	public static void main(String[] args) {
-		
-		Scanner sc=new Scanner(System.in);
-		
-        System.out.print("Enter student name: ");
-        String name = sc.nextLine();
-        
-        System.out.print("Enter roll number: ");
-        int roll = sc.nextInt();
+    public void printWishlist() {
+        String[] list = {"Golden Hat", "Iron Boots"};
+        for (String idea : list) {
+            System.out.println(idea);
+        }
+    }
 
-        System.out.print("Enter marks: ");
-        int marks = sc.nextInt();
-		
+    public static void main(String[] args) {
+        Students c1 = new Students();
+        c1.name = "Pinky";
+        System.out.println("name is: " + c1.name);
 
-        Studenti students=new Studenti(name,roll,marks);
-        students.displayDetails();
-        
+        String name1 = "sami", name2 = "SamI";
 
-        
-        sc.close();
-	}
+        boolean same1 = name1.equals(name2);
+        boolean same2 = name1.equalsIgnoreCase(name2);
 
+        System.out.println(same1);   // false
+        System.out.println(same2);   // true
+
+        String message = name1.concat(name2);
+        System.out.println(message); // samiSamI
+
+        int strlength = name1.length(); // 4
+
+        String greet = " Hello ".trim(); // "Hello"
+        String c = "GrEet".toLowerCase(); // "greet"
+
+        int ind = "hello".indexOf("o"); // 4
+
+        int x = 2, y = 5, z = 0;
+        z = (y < x) ? x : y;
+        System.out.println(z); // 5
+        practice p= new practice();
+        p.printWishlist();
+    }
 }

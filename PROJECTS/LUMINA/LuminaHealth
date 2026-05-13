@@ -1,0 +1,80 @@
+package labEvalTwo;
+import java.util.Scanner;
+
+class Patientx{
+	private int patientID;
+	private String fullName;
+	public Patientx(int patientID, String fullName) {
+
+		this.patientID = patientID;
+		this.fullName = fullName;
+	}
+	
+	public String displayBasicInfo() {
+		return "name: "+fullName+
+				"patientID: "+patientID;
+		
+	}
+	
+}
+class InPatient extends Patientx{
+	private int wardenNumber;
+	private double dailyRate;
+	private int daysOfStay;
+	public InPatient(int patientID, String fullName, int wardenNumber, double dailyRate, int daysOfStay) {
+		super(patientID, fullName);
+		this.wardenNumber = wardenNumber;
+		this.dailyRate = dailyRate;
+		this.daysOfStay = daysOfStay;
+	}
+
+	public double calculateBill() {
+	    return daysOfStay * dailyRate;
+	}
+	
+	@Override
+	public String displayBasicInfo() {
+	    return "=== Processing Daily Hospital Records ===\n" +
+	            super.displayBasicInfo() +
+	            "\nWard Number: " + wardenNumber +
+	            "\nDays of Stay: " + daysOfStay +
+	            "\nDaily Rate: " + dailyRate +
+	            "\nTotal Bill: " + calculateBill();
+	}
+	
+}
+public class LuminaHealthCare {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("=== Lumina Health Care Patient Admission ===");
+		System.out.println("enter no. of patients to be admitted: ");
+		int n=sc.nextInt();
+		
+		for(int i=0;i<n;i++) {
+			
+			System.out.println("registering patient #"+(i+1));
+			sc.nextLine();
+			System.out.println("enter patient ID: ");
+			
+			int id=sc.nextInt();
+			sc.nextLine();
+			
+			System.out.println("enter full name: ");
+			String name=sc.nextLine();
+			
+			System.out.println("enter ward number: ");
+			int ward = sc.nextInt();
+			
+			System.out.println("enter days of stay: ");
+			int days=sc.nextInt();
+			System.out.println("enter daily rate: ");
+			double rate=sc.nextDouble();
+			
+			InPatient p=new InPatient(id, name,ward, rate, days);
+			
+			System.out.println(p.displayBasicInfo());
+		}
+	}
+
+}

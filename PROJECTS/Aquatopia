@@ -1,0 +1,28 @@
+package labEvalTwo;
+import java.util.Scanner;
+
+public class Aquatopia {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter Water Source ID:");
+        String ID = sc.nextLine();
+
+        System.out.println("Enter Location:");
+        String location = sc.nextLine();
+
+        System.out.println("Enter Capacity:");
+        int capacity = sc.nextInt();
+        sc.nextLine();
+        
+        System.out.println("Enter Purity Core:");
+        String purityCore = sc.nextLine();
+        
+        SmartFilter filter= new SmartFilter(ID,location,capacity,purityCore);
+        filter.displayInfo();
+        
+        sc.close();
+	}
+
+}
